@@ -28,7 +28,7 @@ class AuthenticateUserUseCase {
 
   async execute({ login, senha }: IRequest): Promise<IResponse> {
     const user = await this.usersRepository.findByUsername(login);
-    const { expires_in_token, secret_token } = auth;
+    const { expires_in_token, token_secret } = auth;
 
     if (!user) {
       throw new AppError('Username or password incorrect!');
@@ -40,7 +40,7 @@ class AuthenticateUserUseCase {
       throw new AppError('Username or password incorrect!');
     }
 
-    const token = sign({}, secret_token, {
+    const token = sign({}, token_secret, {
       subject: user.id,
       expiresIn: expires_in_token,
     });

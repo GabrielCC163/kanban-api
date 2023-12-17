@@ -1,4 +1,4 @@
 export default {
-  secret_token: '800db3ef1f77e2928e0e1877b8c6fc54',
-  expires_in_token: '15m',
+  token_secret: process.env.JWT_TOKEN_SECRET,
+  expires_in_token: process.env.JWT_EXPIRES_IN,
 };

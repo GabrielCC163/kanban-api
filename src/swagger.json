@@ -66,6 +66,9 @@
                     "201": {
                         "description": "Card created"
                     },
+                    "400": {
+                        "description": "Invalid input"
+                    },
                     "401": {
                         "description": "Unauthorized"
                     },
@@ -142,6 +145,12 @@
                     "200": {
                         "description": "Card updated"
                     },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "404": {
+                        "description": "Card not found"
+                    },
                     "401": {
                         "description": "Unauthorized"
                     },
@@ -173,7 +182,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Card deleted",
+                        "description": "List of all remaining cards",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -187,6 +196,9 @@
                     },
                     "401": {
                         "description": "Unauthorized"
+                    },
+                    "404": {
+                        "description": "Card not found"
                     },
                     "500": {
                         "description": "Internal Server Error"

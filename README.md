@@ -3,14 +3,19 @@
 ## Node.js API with TypeScript and Express.
 
 ## Start
+<b>Attention</b>: Before running the commands below, rename the .env.sample file to .env
+```
+cp .env.sample .env
+```
 
+Run the commands below:
 ```
 docker-compose up -d database
 
-yarn typeorm migration:run
-yarn typeorm seed:admin
+npm run typeorm migration:run
+npm run typeorm seed:admin
 
-yarn dev
+npm run dev
 ```
 
 ## Test
@@ -29,12 +34,6 @@ yarn test
 
 **Login**
 
-- POST /sessions
+- POST /login
   - token (use into requests)
-  - refresh_token (use within next request when token expires)
-
-**Generate new token**
-
-- POST /refresh-token
-  - token (use in requests)
-  - refresh_token (use next time token is expires)
+  

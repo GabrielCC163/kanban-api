@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # access port
-EXPOSE 3333
+EXPOSE 5000
 
 # start
 CMD ["npm", "run", "dev"]
