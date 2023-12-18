@@ -57,14 +57,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/definitions/Card"
+                                "$ref": "#/definitions/CardInput"
                             }
                         }
                     }
                 },
                 "responses": {
                     "201": {
-                        "description": "Card created"
+                        "description": "Card created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/Card"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid input"
@@ -136,14 +143,21 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/definitions/Card"
+                                "$ref": "#/definitions/CardInput"
                             }
                         }
                     }
                 },
                 "responses": {
                     "200": {
-                        "description": "Card updated"
+                        "description": "Card updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/Card"
+                                }
+                            }
+                        }
                     },
                     "400": {
                         "description": "Invalid input"
@@ -208,7 +222,7 @@
         }
     },
     "definitions": {
-        "Card": {
+        "CardInput": {
             "type": "object",
             "properties": {
                 "titulo": {
@@ -225,6 +239,33 @@
                 "titulo": "Card title sample",
                 "conteudo": "Card content sample",
                 "lista": "Card list sample"
+            }
+        },
+        "Card": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "titulo": {
+                    "type": "string"
+                },
+                "conteudo": {
+                    "type": "string"
+                },
+                "lista": {
+                    "type": "string"
+                },
+                "criado_em": {
+                    "type": "date"
+                }
+            },
+            "example": {
+                "id": "94eaac34-9827-441f-9278-9bfec98ecec3",
+                "titulo": "Card title sample",
+                "conteudo": "Card content sample",
+                "lista": "Card list sample",
+                "criado_em": "2023-12-18T00:54:13.608Z"
             }
         }
     },

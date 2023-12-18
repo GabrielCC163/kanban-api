@@ -11,14 +11,6 @@ interface IRequest {
   senha: string;
 }
 
-interface IResponse {
-  user: {
-    name: string;
-    username: string;
-  };
-  token: string;
-}
-
 @injectable()
 class AuthenticateUserUseCase {
   constructor(
@@ -26,7 +18,7 @@ class AuthenticateUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute({ login, senha }: IRequest): Promise<IResponse> {
+  async execute({ login, senha }: IRequest): Promise<string> {
     const user = await this.usersRepository.findByUsername(login);
     const { expires_in_token, token_secret } = auth;
 
@@ -45,15 +37,7 @@ class AuthenticateUserUseCase {
       expiresIn: expires_in_token,
     });
 
-    const tokenReturn: IResponse = {
-      token,
-      user: {
-        name: user.name,
-        username: user.username,
-      },
-    };
-
-    return tokenReturn;
+    return token;
   }
 }
 

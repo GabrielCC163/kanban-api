@@ -11,7 +11,9 @@ async function create() {
 
   await connection.query(
     `INSERT INTO USERS(id, name, username, password, created_at)
-    VALUES('${id}', 'admin', 'letscode', '${password}', 'now()')`
+    VALUES('${id}', 'admin', 'letscode', '${password}', 'now()')
+    ON CONFLICT (username)
+    DO NOTHING;`
   );
 
   await connection.close();
