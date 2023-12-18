@@ -10,10 +10,7 @@ services:
     restart: always
     ports:
       - 5432:5432
-    environment:
-      - POSTGRES_USER=kanbanuser
-      - POSTGRES_PASSWORD=kanbanpass
-      - POSTGRES_DB=kanban
+    env_file: .env
     volumes:
       - pgdata:/data/postgres
     networks:
@@ -21,6 +18,7 @@ services:
 
   app:
     build: .
+    container_name: kanban
     restart: always
     ports:
       - 5000:5000

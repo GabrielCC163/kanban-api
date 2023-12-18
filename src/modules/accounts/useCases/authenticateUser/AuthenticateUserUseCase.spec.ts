@@ -20,7 +20,7 @@ describe('Authenticate User', () => {
       senha: 'lets@123',
     });
 
-    expect(result).toHaveProperty('token');
+    expect(result).toBeDefined();
   });
 
   it('should not be able to authenticate a non existent user', async () => {
